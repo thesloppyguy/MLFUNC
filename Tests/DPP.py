@@ -7,12 +7,13 @@ class DetectClean:
     def __init__(self):
         print("placeholder")
 
-    def find_to_clean(self, df, unique):
+    def find_to_clean(df, unique):
         int_col = []  # Contains integer data type columns
         cate_col = []  # Contains object data type columns
         int_missing = []  # Contains columns with missing data
         outliers = []  # Contains outlier unique keys
         low_information_cols = []  # Contains a list of all the columns with >95% of same data
+        drop_list = []  # Contains list of all the columns that need to be dropped form the database
         datatypes = dict(df.dtypes)
         num_rows = len(df.index)
 
@@ -61,16 +62,11 @@ class DetectClean:
         return_dict['low_info_columns'] = low_information_cols
         return return_dict
 
-    def to_clean():
-        if missing == True:
-            for i in missing_lables:
-                if:
-        if categorical == True:
-            for i in categorical_lables:
-                if:
-        if irregular == True:
-            for i in irregularl_lables:
-                if:
-        if unnecessary == True:
-            for i in unnecessary_lables:
-                if:
+    def now_clean(df, Drop_data=False, drop_list=None, int_columns=None, cat_columns=None):
+        if Drop_data:
+            for i in drop_list:
+                df.drop(i)
+                if i in int_columns:
+                    int_columns.remove(i)
+                else:
+                    cat_columns.remove(i)

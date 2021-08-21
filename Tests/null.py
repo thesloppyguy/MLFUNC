@@ -1,9 +1,20 @@
 import pandas as pd
 import numpy as np
-
+from candis import spell
+from DPP import DetectClean
 
 df = pd.read_csv('Data/train.csv')
 
+a = DetectClean.find_to_clean(df=df, unique='PassengerId')
+DetectClean.now_clean(df=df, Properties=a)
+
+# {
+#  'intiger_columns': ['PassengerId', 'Survived', 'Pclass', 'Age', 'SibSp', 'Parch', 'Fare'],
+#  'category_columns': ['Name', 'Sex', 'Ticket', 'Cabin', 'Embarked'],
+#  'missing_value_columns': ['Age'],
+#  'outlier_list': [631, 852, 60, 72, 160, 181, 202, 325, 387, 481, 684, 793, 847, 864, 14, 26, 168, 361, 439, 568, 611, 639, 679, 886, 28, 89, 119, 259, 300, 312, 342, 378, 381, 439, 528, 558, 690, 701, 717, 731, 738, 743, 780],
+#  'low_info_columns': []
+# }
 
 # num_rows = len(df.index)
 # low_information_cols = []
