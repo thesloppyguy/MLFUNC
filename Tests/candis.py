@@ -6,6 +6,13 @@ class spell:
         self.type = type
 
     def generate_damage(self):
-        mgdl = self.dmg - 5
-        mgdh = self.dmg + 5
-        return(self.dmg-5)
+        self.name = ['mango']
+        self.cost = ['ass', 'bass']
+        self.dmg = [100, 200]
+        self.type = ['tango', 'fango']
+
+    def func_2(self):
+        print(self.name)
+        print(self.cost)
+        print(self.dmg)
+        print(self.type)

@@ -1,3 +1,4 @@
+from sklearn.linear_model import LinearRegression
 import pandas as pd
 import numpy as np
 from candis import spell
@@ -5,8 +6,51 @@ from DPP import DetectClean
 
 df = pd.read_csv('Data/train.csv')
 
-a = DetectClean.find_to_clean(df=df, unique='PassengerId')
-DetectClean.now_clean(df=df, Properties=a)
+b = DetectClean()
+b.find_to_clean(df=df, unique='PassengerId')
+
+# return_dict = dict()
+# return_dict['intiger_columns'] = ['PassengerId',
+#                                   'Survived', 'Pclass', 'Age', 'SibSp', 'Parch', 'Fare']
+# return_dict['category_columns'] = [
+#     'Name', 'Sex', 'Ticket', 'Cabin', 'Embarked']
+# return_dict['missing_value_columns'] = ['Age']
+# return_dict['outlier_list'] = [631, 852, 60, 72, 160, 181, 202, 325, 387, 481, 684, 793, 847, 864, 14, 26, 168, 361, 439,
+#                                568, 611, 639, 679, 886, 28, 89, 119, 259, 300, 312, 342, 378, 381, 439, 528, 558, 690, 701, 717, 731, 738, 743, 780],
+# return_dict['low_info_columns'] = ['Age']
+# return_dict['drop_list'] = ['Age']
+
+# for i in return_dict:
+#     print(i)
+
+# unique = 'PassengerId'
+# drop_list = []
+# for col in df.columns:
+#     if col = unique:
+#         print(df[col].head(5))
+#         chs = input("Do you want to keep this column "+col+" :")
+#         if chs == 'Y' or chs == 'y':
+#             continue
+#         else:
+#             drop_list.append(col)
+
+# print(drop_list)
+
+# return_dict = dict()
+# return_dict['intiger_columns'] = ['PassengerId',
+#                                   'Survived', 'Pclass', 'Age', 'SibSp', 'Parch', 'Fare']
+# return_dict['category_columns'] = [
+#     'Name', 'Sex', 'Ticket', 'Cabin', 'Embarked']
+# return_dict['missing_value_columns'] = ['Age']
+# return_dict['outlier_list'] = [631, 852, 60, 72, 160, 181, 202, 325, 387, 481, 684, 793, 847, 864, 14, 26, 168, 361, 439,
+#                                568, 611, 639, 679, 886, 28, 89, 119, 259, 300, 312, 342, 378, 381, 439, 528, 558, 690, 701, 717, 731, 738, 743, 780],
+# return_dict['low_info_columns'] = ['Age']
+# return_dict['drop_list'] = ['Age']
+
+# for i in return_dict['drop_list']:
+#     if i == 'Age':
+#         return_dict[i].remove(i)
+
 
 # {
 #  'intiger_columns': ['PassengerId', 'Survived', 'Pclass', 'Age', 'SibSp', 'Parch', 'Fare'],
